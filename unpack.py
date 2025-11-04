@@ -1,4 +1,5 @@
 import os
+import struct
 
 def extract_dds_files_with_log(file_path, output_dir='extracted_dds', log_file='dds_index.txt'):
     signature = b'DDS '
@@ -29,12 +30,22 @@ def extract_dds_files_with_log(file_path, output_dir='extracted_dds', log_file='
             out_name = f'dds_{i+1:03}.dds'
             out_path = os.path.join(output_dir, out_name)
             
+            try:
+                fourcc_bytes = dds_data[84:88]
+                fourcc = fourcc_bytes.decode('ascii', errors='ignore').strip()
+                if not fourcc:
+                    fourcc = "UNKNOWN"
+            except Exception:
+                fourcc = "UNKNOWN"
+            
             with open(out_path, 'wb') as out_file:
                 out_file.write(dds_data)
-            log.write(f'{out_name}\n')
-            log.write(f'  Offset: {start} bytes (0x{start:X})\n\n')
             
-            print(f'  {i+1}. DDS found at 0x{start:X} ({start} bytes) -> saved as "{out_name}"')
+            log.write(f'{out_name}\n')
+            log.write(f'  Offset: {start} bytes (0x{start:X})\n')
+            log.write(f'  Format: {fourcc}\n\n')
+            
+            print(f'  {i+1}. DDS found at 0x{start:X} ({start} bytes) -> "{out_name}" [{fourcc}]')
     
     print(f'\nAll DDS files extracted and logged to: {log_path}')
 
