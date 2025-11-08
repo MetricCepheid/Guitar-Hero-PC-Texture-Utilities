@@ -1,5 +1,5 @@
 # Guitar-Hero-III-Texture-Utilities
-Python script(s) that can unpack *.pak\*.pab\*.img.xen file formats and repack them accordingly.
+Python script(s) that can unpack *.pak\\*.pab\\*.img.xen file formats and repack them accordingly.
 
 ## Make sure you have these dependencies installed
 https://www.python.org/downloads/ <br /> <br />
