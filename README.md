@@ -5,7 +5,7 @@ Python script(s) that can unpack \.pak\\\.pab\\.img.xen file formats and repack 
 
 ## Make sure you have these dependencies installed
 https://www.python.org/downloads/ __(REQUIRED)__ <br /> <br />
-https://github.com/microsoft/DirectXTex/releases/download/oct2025/texconv.exe __(REQUIRED)__
+https://github.com/microsoft/DirectXTex/releases/download/oct2025/texconv.exe __(REQUIRED)__ Resolved #1
 - place this in the root folder of where you're running the scripts for repack.py
 
 --------------------
