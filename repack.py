@@ -44,6 +44,8 @@ def regenerate_mipmaps(dds_path, mip_count):
             "-o", temp_dir,
             dds_path
         ]
+
+    if not os.path.exists("./texconv.exe"):
         url = "https://github.com/microsoft/DirectXTex/releases/download/oct2025/texconv.exe"
         dest = "./texconv.exe"
         print(f"Downloading {url}...")
@@ -53,8 +55,7 @@ def regenerate_mipmaps(dds_path, mip_count):
         with open(dest, "wb") as f:
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
-        print(f"Saved texconv to {dest}")
-        
+        print(f"Saved texconv to {dest}")  
 
     print(f"    Regenerating {mip_count} mipmaps for {os.path.basename(dds_path)}...")
     try:
