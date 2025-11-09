@@ -1,7 +1,9 @@
+#!/usr/bin/env python3
 import os
 import re
 import struct
 import subprocess
+import requests
 
 def get_dds_format(dds_bytes):
     if len(dds_bytes) < 128 or dds_bytes[:4] != b'DDS ':
@@ -23,14 +25,36 @@ def regenerate_mipmaps(dds_path, mip_count):
     temp_dir = os.path.join(os.path.dirname(dds_path), "_temp_mipmaps")
     os.makedirs(temp_dir, exist_ok=True)
 
-    cmd = [
-        "texconv",
-        "-m", str(mip_count),
-        "-nologo",
-        "-y",
-        "-o", temp_dir,
-        dds_path
-    ]
+    if os.name == "nt":
+        cmd = [
+            "texconv",
+            "-m", str(mip_count),
+            "-nologo",
+            "-y",
+            "-o", temp_dir,
+            dds_path
+        ]
+    elif os.name == "posix":
+        cmd = [
+            "wine",
+            "texconv.exe",
+            "-m", str(mip_count),
+            "-nologo",
+            "-y",
+            "-o", temp_dir,
+            dds_path
+        ]
+        url = "https://github.com/microsoft/DirectXTex/releases/download/oct2025/texconv.exe"
+        dest = "./texconv.exe"
+        print(f"Downloading {url}...")
+        r = requests.get(url, stream=True)
+        r.raise_for_status()
+
+        with open(dest, "wb") as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
+        print(f"Saved texconv to {dest}")
+        
 
     print(f"    Regenerating {mip_count} mipmaps for {os.path.basename(dds_path)}...")
     try:
