@@ -14,6 +14,7 @@ Python script(s) that can unpack \.pak\\\.pab\\.img.xen file formats and repack 
 - Added re-mipmapping to textures when repacking
 ### 11/09/2025
 - Linux support
+- Added automatic downloading of texconv
 --------------------
 
 Video showcase on how the python scripts work <br />
