@@ -74,7 +74,7 @@ def batch_extract_dds(input_dir):
 
 
 if __name__ == '__main__':
-    print("Guitar Hero III PC Texture Repacker")
+    print("Guitar Hero III PC Texture Unpacker")
     print("Does not currently support console because console is bullshit")
     print("")
     mode = input("Run in batch mode? (y/n): ").strip().lower()
