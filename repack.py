@@ -41,7 +41,7 @@ def regenerate_mipmaps(dds_path, mip_count):
         "-o", temp_dir_win,
         dds_path_win
     ]
-    print(f"{cmd}")
+    #print(f"{cmd}")
 
     if not os.path.exists("./texconv.exe"):
         url = "https://github.com/microsoft/DirectXTex/releases/download/oct2025/texconv.exe"
@@ -57,7 +57,7 @@ def regenerate_mipmaps(dds_path, mip_count):
 
     print(f"    Regenerating {mip_count} mipmaps for {os.path.basename(dds_path)}...")
     try:
-        subprocess.run(cmd, check=True)
+        subprocess.run(cmd, check=True, capture_output=True)
     except subprocess.CalledProcessError as e:
         print(f"    texconv failed: {e}")
         return dds_path
