@@ -33,7 +33,6 @@ def regenerate_mipmaps(dds_path, mip_count):
         temp_dir_win = temp_dir
 
     cmd = [
-        "texconv" if os.name == "nt" else "wine",
         "texconv.exe",
         "-m", str(mip_count),
         "-nologo",
