@@ -100,7 +100,7 @@ def replace_dds_in_file(original_file, dds_dir, log_file, output_file):
         offset = int(offset_str)
         dds_path = os.path.join(dds_dir, dds_name)
         if not os.path.exists(dds_path):
-            msg = f'Missing file: {dds_name} — skipping.'
+            msg = f'Missing file: {dds_name} - skipping.'
             print(f'  {msg}')
             repair_log.append(msg)
             continue
@@ -108,7 +108,7 @@ def replace_dds_in_file(original_file, dds_dir, log_file, output_file):
         # Read original header to determine mip count and format
         original_header = data[offset:offset+128]
         if original_header[:4] != b'DDS ':
-            msg = f'{dds_name} at 0x{offset:X}: No DDS header found in original file — skipping.'
+            msg = f'{dds_name} at 0x{offset:X}: No DDS header found in original file - skipping.'
             print(f'  {msg}')
             repair_log.append(msg)
             continue
@@ -124,13 +124,13 @@ def replace_dds_in_file(original_file, dds_dir, log_file, output_file):
         new_format = get_dds_format(dds_data)
 
         if not orig_format or not new_format:
-            msg = f'{dds_name} at 0x{offset:X}: Could not determine DDS format — skipping.'
+            msg = f'{dds_name} at 0x{offset:X}: Could not determine DDS format - skipping.'
             print(f'  {msg}')
             repair_log.append(msg)
             continue
 
         if orig_format != new_format:
-            msg = (f'{dds_name} at 0x{offset:X}: Format mismatch — '
+            msg = (f'{dds_name} at 0x{offset:X}: Format mismatch - '
                    f'expected {orig_format}, got {new_format}.')
             print(f'  {msg}')
             repair_log.append(msg)
@@ -138,7 +138,7 @@ def replace_dds_in_file(original_file, dds_dir, log_file, output_file):
             print(f'  {i}. {dds_name} matches format ({orig_format}), mipmaps: {orig_mipmaps}')
 
         if offset + len(dds_data) > len(data):
-            msg = f'DDS {dds_name} at 0x{offset:X} exceeds file size — skipping.'
+            msg = f'DDS {dds_name} at 0x{offset:X} exceeds file size - skipping.'
             print(f'  {msg}')
             repair_log.append(msg)
             continue
