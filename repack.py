@@ -74,7 +74,6 @@ def regenerate_mipmaps(dds_path, mip_count):
         pass
     return dds_path
 
-
 def replace_dds_in_file(original_file, dds_dir, log_file, output_file):
     log_path = os.path.join(dds_dir, log_file)
     if not os.path.exists(log_path):
@@ -151,7 +150,6 @@ def replace_dds_in_file(original_file, dds_dir, log_file, output_file):
         log_out.write('\n'.join(repair_log))
     print(f'\nRepacking complete! New file saved as: {output_file}')
     print(f'Repair log written to: {repair_log_path}')
-
 
 def batch_repack_dds(input_dir, log_file='dds_index.txt'):
     if not os.path.isdir(input_dir):
