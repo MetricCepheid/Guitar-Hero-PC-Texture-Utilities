@@ -13,6 +13,8 @@ Python script(s) that can unpack \.pak\\\.pab\\.img.xen file formats and repack 
 --------------------
 
 # ADDITIONS
+### 12/06/2025
+- PNG conversion
 ### 11/08/2025
 - Added batch extraction/repacking
 - Added re-mipmapping to textures when repacking
