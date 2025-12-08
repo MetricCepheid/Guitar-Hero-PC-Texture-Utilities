@@ -33,7 +33,7 @@ if %errorlevel% equ 0 (
     echo.
     pause
     cls
-    pip install imageio pillow
+    pip install imageio pillow requests
     goto close
 ) else (
     echo [31m. Pip is NOT installed or not found in PATH.[0m
