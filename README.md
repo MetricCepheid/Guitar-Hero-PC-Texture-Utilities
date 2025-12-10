@@ -9,7 +9,11 @@ Python script(s) that can unpack \.pak\\\.pab\\.img.xen file formats and repack 
 
 ## Make sure you have these dependencies installed
 [Python 3.7+](https://www.python.org/downloads/) __(REQUIRED)__ <br />
+--------------------
 
+Video showcase on how the python scripts work <br />
+
+https://youtu.be/VbFMTc_ShPY
 --------------------
 
 # ADDITIONS
@@ -23,9 +27,9 @@ Python script(s) that can unpack \.pak\\\.pab\\.img.xen file formats and repack 
 - Added automatic downloading of texconv
 --------------------
 
-Video showcase on how the python scripts work <br />
-
-https://youtu.be/VbFMTc_ShPY
+# TODO:
+- Extract/Insert PNGs
+--------------------
 
 I DO NOT ENDORSE OR SUPPORT GENERATIVE ARTIFICIAL INTELLIGENCE BUT THIS PROJECT DID UTILIZE IT FOR A FEW THINGS I DID NOT UNDERSTAND. <br />
 I APOLOGIZE IF THIS UPSETS YOU.
