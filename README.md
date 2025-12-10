@@ -9,6 +9,7 @@ Python script(s) that can unpack \.pak\\\.pab\\.img.xen file formats and repack 
 
 ## Make sure you have these dependencies installed
 [Python 3.7+](https://www.python.org/downloads/) __(REQUIRED)__ <br />
+* On WINDOWS make sure you check `INSTALL TO PATH` otherwise the [RUN_FIRST.bat](https://github.com/MetricCepheid/Guitar-Hero-PC-Texture-Utilities/blob/main/RUN_FIRST.bat) will bitch about Python not being installed.
 --------------------
 
 Video showcase on how the python scripts work <br />
