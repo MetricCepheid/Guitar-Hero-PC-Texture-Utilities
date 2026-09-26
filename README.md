@@ -1,5 +1,4 @@
 --------------------
---------------------
 
 This tool is the utmost definition of infallibly dogshit. Do not use it, unless you want to. <br />
 <br />
